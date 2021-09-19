@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://thymeleaf.org">
+<head lang="en">
+
+    <title>Java Leasing</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+        <h2>Persons</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Delete</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:if="${persons.empty}">
+                <td colspan="2"> No Persons Available </td>
+            </tr>
+            <tr th:each="person : ${persons}">
+                <td th:text="${person.name}"></td>
+                <td th:text="${person.surname}"></td>
+                <td><a th:href="@{api/deletePerson/{id}(id=${person.id})}">Delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+    <p><a href="/signup">Add a new user</a></p>
+
+
+<!--<form action="api/addPersons" method="post" th:object="${personList}">
+    <th:block th:each="person : ${personBind}">
+
+        Name:
+        <input type="text"
+               th:name="${personList[__${personStat.index}__].name}"
+               th:value="${person.name}" />
+        </br>
+        </br>
+
+        Surname:
+        <input type="text"
+               th:name="${personList[__${personStat.index}__].surname}"
+               th:value="${person.surname}" />
+        </br>
+        </br>
+
+    </th:block>
+    </br>
+    </br> <input type="submit" name="btnSaveEdit" value="Save" />
+</form>-->
+
+
+</body>
+</html>
