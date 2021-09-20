@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://thymeleaf.org">
+<head lang="en">
+
+    <title>Java Leasing</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+        td, th {
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div>
+    <h2>Leasing Applications</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Car VIN</th>
+            <th>Car Brand</th>
+            <th>Car Model</th>
+            <th>Car Type</th>
+            <th>Leasing Status</th>
+            <th>Declination Reason</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${leasingApplications.empty}">
+            <td colspan="2"> No Leasing Applications available </td>
+        </tr>
+        <tr th:each="leasingApplication : ${leasingApplications}">
+            <td th:text="${leasingApplication.carVin}"></td>
+            <td th:text="${leasingApplication.carBrand}"></td>
+            <td th:text="${leasingApplication.carModel}"></td>
+            <td th:text="${leasingApplication.carType}"></td>
+<!--            <td th:text="${leasingApplication.applicationStatus}"></td>-->
+            <td>
+                <span th:text="${leasingApplication.applicationStatus} ? 'Approved' : 'Declined'"></span>
+            </td>
+            <td th:text="${leasingApplication.declinationReason}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

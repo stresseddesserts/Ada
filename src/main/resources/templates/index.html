@@ -6,52 +6,126 @@
     <title>Java Leasing</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
+<script type="text/javascript">
+    function AddPersonForm() {
+        if (document.getElementById('addPersonForm').style.display == 'none') {
+            document.getElementById('addPersonForm').style.display = 'block';
+            document.getElementById('addPersonButton').value = "Ahh don't add it";
+        }
+        else {
+            document.getElementById('addPersonForm').style.display = 'none';
+            document.getElementById('addPersonButton').value = "Add new person";
+        }
+
+    }
+
+</script>
 <body>
-        <h2>Persons</h2>
-        <table>
-            <thead>
-            <tr>
-                <th>Name</th>
-                <th>Surname</th>
-                <th>Delete</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:if="${persons.empty}">
-                <td colspan="2"> No Persons Available </td>
-            </tr>
-            <tr th:each="person : ${persons}">
-                <td th:text="${person.name}"></td>
-                <td th:text="${person.surname}"></td>
-                <td><a th:href="@{api/deletePerson/{id}(id=${person.id})}">Delete</a></td>
-            </tr>
-            </tbody>
-        </table>
-    <p><a href="/signup">Add a new user</a></p>
+
+<div>
+    <h2>Persons</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Identification Number</th>
+            <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${persons.empty}">
+            <td colspan="2"> No Persons Available </td>
+        </tr>
+        <tr th:each="person : ${persons}">
+            <td th:text="${person.name}"></td>
+            <td th:text="${person.surname}"></td>
+            <td th:text="${person.identificationNumber}"></td>
+            <td><a th:href="@{api/deletePerson/{id}(id=${person.id})}">Delete</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<input type="button" id="addPersonButton" onclick="AddPersonForm()" value="Add new person">
+
+<div id="addPersonForm" style="display: none">
+    <form action="#" th:action="@{api/addNewPerson}" th:object="${person}" method="post">
+        <p>Name: <input type="text" th:field="*{name}" /></p>
+        <p>Surname: <input type="text" th:field="*{surname}" /></p>
+        <p>Identification Number: <input type="text" th:field="*{identificationNumber}" /></p>
+        <p>Income: <input type="number" th:field="*{income}" /></p>
+        <p>Funding Amount: <input type="number" th:field="*{fundingAmount}" /></p>
+        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+    </form>
+</div>
 
 
-<!--<form action="api/addPersons" method="post" th:object="${personList}">
-    <th:block th:each="person : ${personBind}">
 
-        Name:
-        <input type="text"
-               th:name="${personList[__${personStat.index}__].name}"
-               th:value="${person.name}" />
-        </br>
-        </br>
+<!--<div th:object="${leasingApplication}">
+    <h2>Your application - <span th:text="*{applicationNumber}"></span>
+    </h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Car VIN</th>
+            <th>Car Brand</th>
+            <th>Car Model</th>
+            <th>Car Type</th>
+            <th>Leasing Status</th>
+            <th>Declination Reason</th>
+            <th>Applicants</th>
+        </tr>
+        </thead>
+        <tbody>
+&lt;!&ndash;        <tr th:if="${leasingApplication.empty}">
+            <td colspan="2"> Application not found </td>
+        </tr>&ndash;&gt;
+        <tr>
+            <td th:text="*{carVin}"></td>
+            <td th:text="*{carBrand}"></td>
+            <td th:text="*{carModel}"></td>
+            <td th:text="*{carType}"></td>
+            <td th:text="*{applicationStatus}"></td>
+            <td th:text="*{declinationReason}"></td>
+            <td th:text="*{applicantIds}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>-->
 
-        Surname:
-        <input type="text"
-               th:name="${personList[__${personStat.index}__].surname}"
-               th:value="${person.surname}" />
-        </br>
-        </br>
 
-    </th:block>
-    </br>
-    </br> <input type="submit" name="btnSaveEdit" value="Save" />
-</form>-->
 
+<div>
+    <h2>Leasing Applications</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Car VIN</th>
+            <th>Car Brand</th>
+            <th>Car Model</th>
+            <th>Car Type</th>
+            <th>Leasing Status</th>
+            <th>Declination Reason</th>
+            <th>Applicants</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${leasingApplications.empty}">
+            <td colspan="2"> No Leasing Applications available </td>
+        </tr>
+        <tr th:each="leasingApplication : ${leasingApplications}">
+            <td th:text="${leasingApplication.carVin}"></td>
+            <td th:text="${leasingApplication.carBrand}"></td>
+            <td th:text="${leasingApplication.carModel}"></td>
+            <td th:text="${leasingApplication.carType}"></td>
+            <td th:text="${leasingApplication.applicationStatus}"></td>
+            <td th:text="${leasingApplication.declinationReason}"></td>
+            <td th:text="${leasingApplication.applicantIds}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
 
 </body>
 </html>

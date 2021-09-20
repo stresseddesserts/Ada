@@ -25,15 +25,15 @@ public class Person {
     private String identificationNumber;
     private Integer income;
     private Integer fundingAmount;
-    private String applicationId = UUID.randomUUID().toString().replace("-", "").substring(0,12);
+   // private String applicationId = UUID.randomUUID().toString().replace("-", "").substring(0,12);
 
-    public Person(String name, String surname, String identificationNumber, Integer income, Integer fundingAmount, String applicationId) {
+    public Person(String name, String surname, String identificationNumber, Integer income, Integer fundingAmount) {
         this.name = name;
         this.surname = surname;
         this.identificationNumber = identificationNumber;
         this.income = income;
         this.fundingAmount = fundingAmount;
-        this.applicationId = applicationId;
+      //  this.applicationId = applicationId;
     }
 
     public Person() {
@@ -88,11 +88,11 @@ public class Person {
         this.fundingAmount = fundingAmount;
     }
 
-    public String getApplicationId() {
+/*    public String getApplicationId() {
         return applicationId;
     }
 
     public void setApplicationId(String applicationId) {
         this.applicationId = applicationId;
-    }
+    }*/
 }

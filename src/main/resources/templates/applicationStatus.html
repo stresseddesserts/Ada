@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://thymeleaf.org">
+<head lang="en">
+
+  <title>Java Leasing</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+  <style>
+    th, td {
+      border: 1px solid black;
+      padding: 5px;
+    }
+    form{
+      text-align: center;
+    }
+
+    table{
+      margin:0 auto;
+    }
+
+  </style>
+</head>
+<body>
+
+
+<div>
+  <form th:object="${leasingApplication}" th:action="@{/getApplicationStatus}" method="get">
+    <input type="text" name="applicationNumber" id="applicationNumber" th:value="${applicationNumber}"/>
+    <input type="text" name="identificationNumber" id="identificationNumber" th:value="${identificationNumber}"/>
+    <input type="submit" value="Search"/>
+   <div th:if="${leasingApplication != null}">
+     <h2>Your application - <span th:text="*{applicationNumber}"></span></h2>
+     <table>
+       <tr>
+          <th>Car VIN</th>
+          <th>Car Brand</th>
+          <th>Car Model</th>
+          <th>Car Type</th>
+          <th>Leasing Status</th>
+          <th>Declination Reason</th>
+          <th>Applicants</th>
+        </tr>
+        <tr>
+          <td th:text="*{carVin}"></td>
+          <td th:text="*{carBrand}"></td>
+          <td th:text="*{carModel}"></td>
+          <td th:text="*{carType}"></td>
+          <td th:text="*{applicationStatus}"></td>
+          <td th:text="*{declinationReason}"></td>
+          <td th:text="*{applicantIds}"></td>
+        </tr>
+      </table>
+   </div>
+  </form>
+</div>
+
+
+
+<!--<div th:if="${leasingApplication == null}"><h1>hello there</h1></div>
+<div th:if="${leasingApplication != null}" th:object="${leasingApplication}">
+  <h2>Your application - <span th:text="*{applicationNumber}"></span>
+  </h2>
+  <table>
+    <thead>
+    <tr>
+      <th>Car VIN</th>
+      <th>Car Brand</th>
+      <th>Car Model</th>
+      <th>Car Type</th>
+      <th>Leasing Status</th>
+      <th>Declination Reason</th>
+      <th>Applicants</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td th:text="*{carVin}"></td>
+      <td th:text="*{carBrand}"></td>
+      <td th:text="*{carModel}"></td>
+      <td th:text="*{carType}"></td>
+      <td th:text="*{applicationStatus}"></td>
+      <td th:text="*{declinationReason}"></td>
+      <td th:text="*{applicantIds}"></td>
+    </tr>
+    </tbody>
+  </table>
+</div>-->
+
+</body>
+</html>

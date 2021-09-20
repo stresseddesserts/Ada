@@ -1,4 +1,4 @@
-package com.leasing.LeasingApp;
+package com.leasing.LeasingApp.repositories;
 
 import com.leasing.LeasingApp.Person;
 import org.springframework.data.jpa.repository.JpaRepository;

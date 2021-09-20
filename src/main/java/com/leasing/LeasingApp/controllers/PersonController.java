@@ -1,14 +1,12 @@
-package com.leasing.LeasingApp;
+package com.leasing.LeasingApp.controllers;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import com.leasing.LeasingApp.Person;
+import com.leasing.LeasingApp.services.PersonService;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletResponse;
 import java.util.List;
-import java.util.Map;
 
 
 @RestController
@@ -41,11 +39,24 @@ public class PersonController {
         return new ModelAndView("redirect:" + "/");
     }
 
-    @PostMapping(value="/addPersons")
+/*    @PostMapping(value="/addPersons")
     public ModelAndView saveEditPersons(@ModelAttribute("personList") List<Person> personsList){
         for (int i = 0; i < personsList.size(); i++) {
             personService.addPerson(personsList.get(i));
         }
         return new ModelAndView("redirect:" + "/");
+    }*/
+
+
+    @GetMapping(value = "/addNewPerson")
+    public void addPersonForm(Model model) {
+        model.addAttribute("person", new Person());
     }
+
+    @PostMapping("/addNewPerson")
+    public ModelAndView addPersonSubmit(@ModelAttribute Person person, Model model) {
+        personService.addPerson(person);
+        return new ModelAndView("redirect:" + "/");
+    }
+
 }
