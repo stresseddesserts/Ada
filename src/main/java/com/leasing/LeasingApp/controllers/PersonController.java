@@ -1,6 +1,6 @@
 package com.leasing.LeasingApp.controllers;
 
-import com.leasing.LeasingApp.Person;
+import com.leasing.LeasingApp.models.Person;
 import com.leasing.LeasingApp.services.PersonService;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;

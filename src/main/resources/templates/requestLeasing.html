@@ -1,10 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://thymeleaf.org">
+<head lang="en">
+
+    <title>Java Leasing</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
+<script type="text/javascript">
+        function AddCoapplicantForm() {
+            if (document.getElementById('addCoapplicantForm').style.display == 'none') {
+                document.getElementById('addCoapplicantForm').style.display = 'block';
+                document.getElementById('addCoapplicantButton').value = "Ahh don't add it";
+            }
+            else {
+                document.getElementById('addCoapplicantForm').style.display = 'none';
+                document.getElementById('addCoapplicantButton').value = "Add Co-Applicant";
+
+                // remove fields if decided to remove co-applicant
+
+                container = document.getElementById("addCoapplicantForm");
+                inputs = container.getElementsByTagName('input');
+                for (index = 0; index < inputs.length; ++index) {
+                    if(inputs[index].type =="text" || inputs[index].type =="number")
+                        inputs[index].value = '';
+                }
+            }
+
+        }
+
+</script>
 <body>
-$END$
+
+<div>
+    <form action="#" th:action="@{/requestLeasing}" th:object="${form}" method="post" >
+
+        <h2>Person's data: </h2>
+
+        <p>Name: <input type="text" th:field="*{personsList[0].name}" /></p>
+        <p>Surname: <input type="text" th:field="*{personsList[0].surname}" /></p>
+        <p>Identification Number: <input type="text" th:field="*{personsList[0].identificationNumber}" /></p>
+        <p>Income: <input type="number" th:field="*{personsList[0].income}" /></p>
+
+
+
+        <input type="button" id="addCoapplicantButton" onclick="AddCoapplicantForm()" value="Add Co-Applicant">
+        <div id="addCoapplicantForm" style="display: none">
+
+            <h2>Co-applicant</h2>
+
+            <p>Name: <input type="text" th:field="*{personsList[1].name}" /></p>
+            <p>Surname: <input type="text" th:field="*{personsList[1].surname}" /></p>
+            <p>Identification Number: <input type="text" th:field="*{personsList[1].identificationNumber}" /></p>
+            <p>Income: <input type="number" th:field="*{personsList[1].income}" /></p>
+        </div>
+
+        <h2>Car's data: </h2>
+        <p>Car VIN: <input type="text" th:field="${newLeasing.carVin}" /></p>
+        <p>Car Brand: <input type="text" th:field="${newLeasing.carBrand}" /></p>
+        <p>Car Model: <input type="text" th:field="${newLeasing.carModel}" /></p>
+        <p>Car Type: <select th:field="${newLeasing.carType}">
+            <option th:value="'Sedan'" th:text="Sedan"></option>
+            <option th:value="'Hatchback'" th:text="Hatchback"></option>
+            <option th:value="'SUV'" th:text="SUV"></option>
+            <option th:value="'Coupe'" th:text="Coupe"></option>
+            <option th:value="'Pickup'" th:text="Pickup"></option>
+            <option th:value="'Supercar'" th:text="Supercar"></option>
+        </select>
+        <p>Funding Amount: <input type="number" th:field="${newLeasing.fundingAmount}" /></p>
+
+        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+    </form>
+
+</div>
+
+
 </body>
 </html>

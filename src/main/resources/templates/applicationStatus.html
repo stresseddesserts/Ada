@@ -46,7 +46,9 @@
           <td th:text="*{carBrand}"></td>
           <td th:text="*{carModel}"></td>
           <td th:text="*{carType}"></td>
-          <td th:text="*{applicationStatus}"></td>
+        <td>
+            <span th:text="*{applicationStatus} ? 'Approved' : 'Declined'"></span>
+    </td>
           <td th:text="*{declinationReason}"></td>
           <td th:text="*{applicantIds}"></td>
         </tr>

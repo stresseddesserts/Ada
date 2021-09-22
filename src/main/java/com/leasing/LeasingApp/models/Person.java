@@ -1,13 +1,10 @@
-package com.leasing.LeasingApp;
+package com.leasing.LeasingApp.models;
 
 import javax.persistence.*;
-import java.util.UUID;
 
 @Entity
 @Table
 public class Person {
-
-
 
     @Id
     @SequenceGenerator(
@@ -24,16 +21,12 @@ public class Person {
     private String surname;
     private String identificationNumber;
     private Integer income;
-    private Integer fundingAmount;
-   // private String applicationId = UUID.randomUUID().toString().replace("-", "").substring(0,12);
 
-    public Person(String name, String surname, String identificationNumber, Integer income, Integer fundingAmount) {
+    public Person(String name, String surname, String identificationNumber, Integer income) {
         this.name = name;
         this.surname = surname;
         this.identificationNumber = identificationNumber;
         this.income = income;
-        this.fundingAmount = fundingAmount;
-      //  this.applicationId = applicationId;
     }
 
     public Person() {
@@ -79,20 +72,4 @@ public class Person {
     public void setIncome(Integer income) {
         this.income = income;
     }
-
-    public Integer getFundingAmount() {
-        return fundingAmount;
-    }
-
-    public void setFundingAmount(Integer fundingAmount) {
-        this.fundingAmount = fundingAmount;
-    }
-
-/*    public String getApplicationId() {
-        return applicationId;
-    }
-
-    public void setApplicationId(String applicationId) {
-        this.applicationId = applicationId;
-    }*/
 }

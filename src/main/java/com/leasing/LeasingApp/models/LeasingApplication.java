@@ -1,19 +1,20 @@
-package com.leasing.LeasingApp;
+package com.leasing.LeasingApp.models;
 
 import javax.persistence.*;
+import java.util.UUID;
 
 @Entity
 @Table
 public class LeasingApplication {
     @Id
     @SequenceGenerator(
-        name = "person_sequence",
-        sequenceName = "person_sequence",
+        name = "leasingApplication_sequence",
+        sequenceName = "leasingApplication_sequence",
         allocationSize = 1
     )
     @GeneratedValue(
         strategy = GenerationType.SEQUENCE,
-        generator = "person_sequence"
+        generator = "leasingApplication_sequence"
     )
     private Long id;
     private String carVin;
@@ -24,9 +25,9 @@ public class LeasingApplication {
     private String declinationReason;
     private String applicantIds;
     private String applicationNumber;
+    private Integer fundingAmount;
 
-    public LeasingApplication(String carVin, String carBrand, String carModel, String carType, Boolean applicationStatus, String declinationReason, String applicantIds, String applicationNumber) {
-        this.id = id;
+    public LeasingApplication(String carVin, String carBrand, String carModel, String carType, Boolean applicationStatus, String declinationReason, String applicantIds, Integer fundingAmount, String applicationNumber) {
         this.carVin = carVin;
         this.carBrand = carBrand;
         this.carModel = carModel;
@@ -34,11 +35,20 @@ public class LeasingApplication {
         this.applicationStatus = applicationStatus;
         this.declinationReason = declinationReason;
         this.applicantIds = applicantIds;
-        this.applicationNumber = applicationNumber;
+        this.fundingAmount = fundingAmount;
+        this.applicationNumber = UUID.randomUUID().toString().replace("-", "").substring(0,12);
     }
 
     public LeasingApplication() {
+        this.applicationNumber = UUID.randomUUID().toString().replace("-", "").substring(0,12);
+    }
 
+    public Integer getFundingAmount() {
+        return fundingAmount;
+    }
+
+    public void setFundingAmount(Integer fundingAmount) {
+        this.fundingAmount = fundingAmount;
     }
 
     public String getApplicationNumber() {

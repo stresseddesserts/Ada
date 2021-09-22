@@ -1,9 +1,7 @@
 package com.leasing.LeasingApp.configs;
 
-import com.leasing.LeasingApp.LeasingApplication;
-import com.leasing.LeasingApp.Person;
+import com.leasing.LeasingApp.models.LeasingApplication;
 import com.leasing.LeasingApp.repositories.LeasingApplicationRepository;
-import com.leasing.LeasingApp.repositories.PersonRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -24,7 +22,8 @@ public class LeasingApplicationConfig {
                     true,
                     "",
                     "1;2",
-                    "123456"
+                    12456,
+                    ""
 
             );
 
@@ -36,7 +35,8 @@ public class LeasingApplicationConfig {
                     false,
                     "Insufficient net income",
                     "1;2",
-                    "7891011"
+                    7891011,
+                    ""
             );
             leasingRepository.saveAll(
                     List.of(toyota, ford)

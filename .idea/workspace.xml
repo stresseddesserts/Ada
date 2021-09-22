@@ -4,7 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ac77687-8ac9-4426-a133-35b53f543ea4" name="Changes" comment="Classes for leasingApplication crated;&#10;new .htmls crated, separated from index;&#10;form for leasingApplication search added;&#10;logic to retrieve all leasingApplications added;&#10;logic to retrieve a single leasingApplication by application number AND carType added;" />
+    <list default="true" id="5ac77687-8ac9-4426-a133-35b53f543ea4" name="Changes" comment="Classes for leasingApplication crated;&#10;new .htmls crated, separated from index;&#10;form for leasingApplication search added;&#10;logic to retrieve all leasingApplications added;&#10;logic to retrieve a single leasingApplication by application number AND carType added;">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/leasing/LeasingApp/configs/LeasingApplicationConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/leasing/LeasingApp/configs/LeasingApplicationConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/leasing/LeasingApp/configs/PersonConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/leasing/LeasingApp/configs/PersonConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/leasing/LeasingApp/controllers/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/leasing/LeasingApp/controllers/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/leasing/LeasingApp/controllers/LeasingApplicationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/leasing/LeasingApp/controllers/LeasingApplicationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/leasing/LeasingApp/controllers/PersonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/leasing/LeasingApp/controllers/PersonController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/leasing/LeasingApp/models/LeasingApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/leasing/LeasingApp/models/LeasingApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/leasing/LeasingApp/models/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/leasing/LeasingApp/models/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/leasing/LeasingApp/models/PersonsForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/leasing/LeasingApp/models/PersonsForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/leasing/LeasingApp/repositories/LeasingApplicationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/leasing/LeasingApp/repositories/LeasingApplicationRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/leasing/LeasingApp/repositories/PersonRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/leasing/LeasingApp/repositories/PersonRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/leasing/LeasingApp/services/LeasingApplicationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/leasing/LeasingApp/services/LeasingApplicationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/leasing/LeasingApp/services/PersonService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/leasing/LeasingApp/services/PersonService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/applicationStatus.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/applicationStatus.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/requestLeasing.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/requestLeasing.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,8 +31,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -162,11 +179,23 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/leasing/LeasingApp/controllers/LeasingApplicationController.java</url>
-          <line>51</line>
-          <option name="timeStamp" value="5" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/leasing/LeasingApp/services/LeasingApplicationService.java</url>
+          <line>83</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/leasing/LeasingApp/services/LeasingApplicationService.java</url>
+          <line>48</line>
+          <option name="timeStamp" value="19" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="SpringBootApplicationConfigurationType">
+        <watch expression="applicantIds.substring(0,3)" language="JAVA" />
+        <watch expression="applicantIds.length()" language="JAVA" />
+        <watch expression="applicantIds" language="JAVA" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

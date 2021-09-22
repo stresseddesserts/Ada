@@ -7,7 +7,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <script type="text/javascript">
-    function AddPersonForm() {
+/*    function AddPersonForm() {
         if (document.getElementById('addPersonForm').style.display == 'none') {
             document.getElementById('addPersonForm').style.display = 'block';
             document.getElementById('addPersonButton').value = "Ahh don't add it";
@@ -17,12 +17,14 @@
             document.getElementById('addPersonButton').value = "Add new person";
         }
 
-    }
+    }*/
 
 </script>
 <body>
 
-<div>
+
+
+<!--<div>
     <h2>Persons</h2>
     <table>
         <thead>
@@ -60,44 +62,8 @@
     </form>
 </div>
 
-
-
-<!--<div th:object="${leasingApplication}">
-    <h2>Your application - <span th:text="*{applicationNumber}"></span>
-    </h2>
-    <table>
-        <thead>
-        <tr>
-            <th>Car VIN</th>
-            <th>Car Brand</th>
-            <th>Car Model</th>
-            <th>Car Type</th>
-            <th>Leasing Status</th>
-            <th>Declination Reason</th>
-            <th>Applicants</th>
-        </tr>
-        </thead>
-        <tbody>
-&lt;!&ndash;        <tr th:if="${leasingApplication.empty}">
-            <td colspan="2"> Application not found </td>
-        </tr>&ndash;&gt;
-        <tr>
-            <td th:text="*{carVin}"></td>
-            <td th:text="*{carBrand}"></td>
-            <td th:text="*{carModel}"></td>
-            <td th:text="*{carType}"></td>
-            <td th:text="*{applicationStatus}"></td>
-            <td th:text="*{declinationReason}"></td>
-            <td th:text="*{applicantIds}"></td>
-        </tr>
-        </tbody>
-    </table>
-</div>-->
-
-
-
 <div>
-    <h2>Leasing Applications</h2>
+    <h2>Current Leasing Applications</h2>
     <table>
         <thead>
         <tr>
@@ -106,13 +72,11 @@
             <th>Car Model</th>
             <th>Car Type</th>
             <th>Leasing Status</th>
-            <th>Declination Reason</th>
-            <th>Applicants</th>
         </tr>
         </thead>
         <tbody>
         <tr th:if="${leasingApplications.empty}">
-            <td colspan="2"> No Leasing Applications available </td>
+            <td colspan="2">No Leasing Applications available </td>
         </tr>
         <tr th:each="leasingApplication : ${leasingApplications}">
             <td th:text="${leasingApplication.carVin}"></td>
@@ -120,12 +84,10 @@
             <td th:text="${leasingApplication.carModel}"></td>
             <td th:text="${leasingApplication.carType}"></td>
             <td th:text="${leasingApplication.applicationStatus}"></td>
-            <td th:text="${leasingApplication.declinationReason}"></td>
-            <td th:text="${leasingApplication.applicantIds}"></td>
         </tr>
         </tbody>
     </table>
-</div>
+</div>-->
 
 </body>
 </html>
