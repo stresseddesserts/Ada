@@ -5,11 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5ac77687-8ac9-4426-a133-35b53f543ea4" name="Changes" comment="Classes for leasingApplication crated;&#10;new .htmls crated, separated from index;&#10;form for leasingApplication search added;&#10;logic to retrieve all leasingApplications added;&#10;logic to retrieve a single leasingApplication by application number AND carType added;">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/main.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/Header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/leasing/LeasingApp/controllers/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/leasing/LeasingApp/controllers/HomeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/leasing/LeasingApp/controllers/LeasingApplicationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/leasing/LeasingApp/controllers/LeasingApplicationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/leasing/LeasingApp/repositories/PersonRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/leasing/LeasingApp/repositories/PersonRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/leasing/LeasingApp/services/LeasingApplicationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/leasing/LeasingApp/services/LeasingApplicationService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/applicationStatus.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/applicationStatus.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/requestLeasing.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/requestLeasing.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -21,13 +27,23 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="HTML File" />
         <option value="Class" />
+        <option value="JavaScript File" />
+        <option value="HTML File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/main/resources/application.properties" root0="SKIP_HIGHLIGHTING" />
@@ -49,12 +65,15 @@
     </option>
   </component>
   <component name="ProjectId" id="1yJLwBnZO0XGLeDvWC81Xpeptut" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="h2&#10;postgresql" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RequestMappingsPanelOrder0" value="0" />
@@ -66,7 +85,8 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/Change SQL Dialect" value="H2" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect" value="PostgreSQL" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/static/css" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
@@ -74,9 +94,15 @@
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Rokenrolas\Desktop\Java\LeasingApp\src\main\resources\static\css" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Rokenrolas\Desktop\Java\LeasingApp\src\main\resources\templates" />
+      <recent name="C:\Users\Rokenrolas\Desktop\Java\LeasingApp\src\main\resources\templates\fragments" />
+      <recent name="C:\Users\Rokenrolas\Desktop\Java\LeasingApp\src\main\resources\static\js" />
+      <recent name="C:\Users\Rokenrolas\Desktop\Java\LeasingApp\src\main\resources\static\css" />
       <recent name="C:\Users\Rokenrolas\Desktop\Java\LeasingApp\src\main\resources\static" />
+      <recent name="C:\Users\Rokenrolas\Desktop\Java\LeasingApp\src\main\resources" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.leasing.LeasingApp" />
@@ -129,7 +155,8 @@
       <workItem from="1632040103238" duration="7813000" />
       <workItem from="1632048098030" duration="20167000" />
       <workItem from="1632152180320" duration="19781000" />
-      <workItem from="1632377326580" duration="13303000" />
+      <workItem from="1632377326580" duration="23880000" />
+      <workItem from="1632430812806" duration="7593000" />
     </task>
     <task id="LOCAL−00001" summary="Wowww, still remembering how to use Java">
       <created>1632090911167</created>
@@ -162,6 +189,7 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Wowww, still remembering how to use Java" />
     <MESSAGE value="Classes for leasingApplication crated;&#10;new .htmls crated, separated from index;&#10;form for leasingApplication search added;&#10;logic to retrieve all leasingApplications added;&#10;logic to retrieve a single leasingApplication by application number AND carType added;" />
     <option name="LAST_COMMIT_MESSAGE" value="Classes for leasingApplication crated;&#10;new .htmls crated, separated from index;&#10;form for leasingApplication search added;&#10;logic to retrieve all leasingApplications added;&#10;logic to retrieve a single leasingApplication by application number AND carType added;" />
@@ -170,14 +198,19 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/leasing/LeasingApp/controllers/LeasingApplicationController.java</url>
-          <line>96</line>
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/leasing/LeasingApp/services/LeasingApplicationService.java</url>
           <line>112</line>
           <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/leasing/LeasingApp/controllers/LeasingApplicationController.java</url>
+          <line>99</line>
+          <option name="timeStamp" value="43" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/leasing/LeasingApp/services/LeasingApplicationService.java</url>
+          <line>57</line>
+          <option name="timeStamp" value="45" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

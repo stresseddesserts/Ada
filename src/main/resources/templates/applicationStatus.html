@@ -10,8 +10,9 @@
     th, td {
       border: 1px solid black;
       padding: 5px;
+        text-align: center;
     }
-    form{
+    form, h2{
       text-align: center;
     }
 
@@ -26,72 +27,42 @@
 
 <div>
   <form th:object="${leasingApplication}" th:action="@{/getApplicationStatus}" method="get">
-    <input type="text" name="applicationNumber" id="applicationNumber" th:value="${applicationNumber}"/>
-    <input type="text" name="identificationNumber" id="identificationNumber" th:value="${identificationNumber}"/>
+    <input type="text" placeholder="Enter Application Number" name="applicationNumber" id="applicationNumber" th:value="${applicationNumber}"/>
+    <input type="text" placeholder="Enter Identification Number" name="identificationNumber" id="identificationNumber" th:value="${identificationNumber}"/>
     <input type="submit" value="Search"/>
-   <div th:if="${leasingApplication != null}">
-     <h2>Your application - <span th:text="*{applicationNumber}"></span></h2>
-     <table>
-       <tr>
-          <th>Car VIN</th>
-          <th>Car Brand</th>
-          <th>Car Model</th>
-          <th>Car Type</th>
-          <th>Leasing Status</th>
-          <th>Declination Reason</th>
-           <th>Funding Amount</th>
-           <th>Total income</th>
-           <th>Applicants</th>
-        </tr>
-        <tr>
-          <td th:text="*{carVin}"></td>
-          <td th:text="*{carBrand}"></td>
-          <td th:text="*{carModel}"></td>
-          <td th:text="*{carType}"></td>
-        <td>
-            <span th:text="*{applicationStatus} ? 'Approved' : 'Declined'"></span>
-        </td>
-          <td th:text="*{declinationReason}"></td>
-          <td th:text="*{fundingAmount}"></td>
-          <td th:text="${totalIncome}"></td>
-          <td th:text="${applicantNames}"></td>
-        </tr>
-      </table>
-   </div>
   </form>
 </div>
 
-
-
-<!--<div th:if="${leasingApplication == null}"><h1>hello there</h1></div>
-<div th:if="${leasingApplication != null}" th:object="${leasingApplication}">
-  <h2>Your application - <span th:text="*{applicationNumber}"></span>
-  </h2>
-  <table>
-    <thead>
-    <tr>
+<div th:object="${leasingApplication}" th:if="${leasingApplication != null}" >
+    <h2>Your application - <span th:text="*{applicationNumber}"></span></h2>
+    <table>
+     <tr>
       <th>Car VIN</th>
       <th>Car Brand</th>
       <th>Car Model</th>
       <th>Car Type</th>
       <th>Leasing Status</th>
       <th>Declination Reason</th>
-      <th>Applicants</th>
+       <th>Funding Amount</th>
+       <th>Total income</th>
+       <th>Applicants</th>
     </tr>
-    </thead>
-    <tbody>
     <tr>
       <td th:text="*{carVin}"></td>
       <td th:text="*{carBrand}"></td>
       <td th:text="*{carModel}"></td>
       <td th:text="*{carType}"></td>
-      <td th:text="*{applicationStatus}"></td>
+    <td>
+        <span th:text="*{applicationStatus} ? 'Approved' : 'Declined'"></span>
+    </td>
       <td th:text="*{declinationReason}"></td>
-      <td th:text="*{applicantIds}"></td>
+      <td th:text="*{fundingAmount}"></td>
+      <td th:text="${totalIncome}"></td>
+      <td th:text="${applicantNames}"></td>
     </tr>
-    </tbody>
   </table>
-</div>-->
+
+</div>
 
 </body>
 </html>

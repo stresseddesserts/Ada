@@ -2,86 +2,108 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://thymeleaf.org">
 <head lang="en">
+    <div th:replace="fragments/Header :: script"></div>
 
-    <title>Java Leasing</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <style>
         .required-field::after {
             content: "*";
             color: #bc2b2c;
         }
+
     </style>
+    <script type="text/javascript" th:src="@{js/app.js}"></script>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
 </head>
-<script type="text/javascript">
-        function AddCoapplicantForm() {
-            if (document.getElementById('addCoapplicantForm').style.display == 'none') {
-                document.getElementById('addCoapplicantForm').style.display = 'block';
-                document.getElementById('addCoapplicantButton').value = "Ahh don't add it";
-                container = document.getElementById("addCoapplicantForm");
-                inputs = container.getElementsByTagName('input');
-                for (index = 0; index < inputs.length; ++index) {
-                    if(inputs[index].type =="text" || inputs[index].type =="number")
-                        inputs[index].disabled = false;
-                }
-            }
-            else {
-                document.getElementById('addCoapplicantForm').style.display = 'none';
-                document.getElementById('addCoapplicantButton').value = "Add Co-Applicant";
 
-                // remove fields if decided to remove co-applicant
-                container = document.getElementById("addCoapplicantForm");
-                inputs = container.getElementsByTagName('input');
-                for (index = 0; index < inputs.length; ++index) {
-                    if(inputs[index].type =="text" || inputs[index].type =="number")
-                        inputs[index].disabled = true;
-                }
-            }
-
-        }
-
-</script>
 <body>
+<div th:replace="fragments/Header :: header"></div>
 
-<div>
-    <form action="#" th:action="@{/requestLeasing}" th:object="${form}" method="post" >
+<h4 class="infoBlock">Leasing Request</h4>
 
-        <h2>Person's data: </h2>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <form action="#" th:action="@{/requestLeasing}" th:object="${form}" method="post" >
 
-        <p><span class = "required-field">Name:</span> <input type="text" th:field="*{personsList[0].name}" required="required" /></p>
-        <p><span class = "required-field">Surname:</span> <input type="text" th:field="*{personsList[0].surname}" required="required"/></p>
-        <p><span class = "required-field">Identification Number:</span> <input type="text" th:field="*{personsList[0].identificationNumber}" required="required"/></p>
-        <p><span class = "required-field">Income:</span> <input type="number" th:field="*{personsList[0].income}" required="required"/></p>
+                <!--MAIN CUSTOMER-->
 
-        <input type="button" id="addCoapplicantButton" onclick="AddCoapplicantForm()" value="Add Co-Applicant">
+                <div class="form-group">
+                    <label for="name1" class="required-field">Name</label>
+                    <input type="text" class="form-control" id="name1" th:field="*{personsList[0].name}" placeholder="Enter name" required="required">
+                </div>
+                <div class="form-group">
+                    <label for="surname1" class="required-field">Surname</label>
+                    <input type="text" class="form-control" id="surname1" th:field="*{personsList[0].surname}" placeholder="Surname" required="required">
+                </div>
+                <div class="form-group">
+                    <label for="identificationNumber1" class="required-field">Identification Number</label>
+                    <input type="text" class="form-control" id="identificationNumber1" th:field="*{personsList[0].identificationNumber}" placeholder="Identification number" required="required">
+                </div>
+                <div class="form-group">
+                    <label for="income1" class="required-field">Income</label>
+                    <input type="number" min="0" class="form-control" id="income1" th:field="*{personsList[0].income}" placeholder="Income" required="required">
+                </div>
 
-<!--        <input type="button" -->
-        <div id="addCoapplicantForm" style="display: none">
 
-            <h2>Co-applicant</h2>
+                 <!--CO-APPLICANT button-->
+                <button type="button" id="addCoapplicantButton" class="btn btn-info" onclick="AddCoapplicantForm()">Add Co-Applicant</button>
 
-            <p><span class = "required-field">Name:</span> <input type="text" th:field="*{personsList[1].name}" required="required" disabled/></p>
-            <p><span class = "required-field">Surname:</span> <input type="text" th:field="*{personsList[1].surname}" required="required" disabled/></p>
-            <p><span class = "required-field">Identification Number:</span> <input type="text" th:field="*{personsList[1].identificationNumber}" required="required" disabled/></p>
-            <p><span class = "required-field">Income:</span> <input type="number" th:field="*{personsList[1].income}" required="required" disabled/></p>
+                 <!--CO-APPLICANT form-->
+                <div id="addCoapplicantForm" style="display: none">
+                    <div class="form-group">
+                        <label for="name2" class="required-field">Name</label>
+                        <input type="text" class="form-control" id="name2" th:field="*{personsList[1].name}" placeholder="Enter name" required="required" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="surname2" class="required-field">Surname</label>
+                        <input type="text" class="form-control" id="surname2" th:field="*{personsList[1].surname}" placeholder="Surname" required="required" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="identificationNumber2" class="required-field">Identification Number</label>
+                        <input type="text" class="form-control" id="identificationNumber2" th:field="*{personsList[1].identificationNumber}" placeholder="Identification number" required="required" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="income2" class="required-field">Income</label>
+                        <input type="number" min="0" class="form-control" id="income2" th:field="*{personsList[1].income}" placeholder="Income" required="required" disabled>
+                    </div>
+                </div>
+
+                <!--CAR DATA-->
+                <div>
+                    <div class="form-group">
+                        <label for="carVin" class="required-field">Car VIN</label>
+                        <input type="text" class="form-control" id="carVin" th:field="${newLeasing.carVin}" placeholder="Enter car VIN" required="required">
+                    </div>
+                    <div class="form-group">
+                        <label for="carBrand">Car Brand</label>
+                        <input type="text" class="form-control" id="carBrand" th:field="${newLeasing.carBrand}" placeholder="Car brand">
+                    </div>
+                    <div class="form-group">
+                        <label for="carModel">Car Model</label>
+                        <input type="text" class="form-control" id="carModel" th:field="${newLeasing.carModel}" placeholder="Car model">
+                    </div>
+                    <div class="form-group">
+                        <label for="carType">Car Type</label>
+                        <select class="form-select" aria-label="Default select example" id="carType" th:field="${newLeasing.carType}">
+                            <option th:value="'Sedan'" th:text="Sedan"></option>
+                            <option th:value="'Hatchback'" th:text="Hatchback"></option>
+                            <option th:value="'SUV'" th:text="SUV"></option>
+                            <option th:value="'Coupe'" th:text="Coupe"></option>
+                            <option th:value="'Pickup'" th:text="Pickup"></option>
+                            <option th:value="'Supercar'" th:text="Supercar"></option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="fundingAmount" class="required-field">Funding Amount</label>
+                        <input type="number" min="0" class="form-control" id="fundingAmount" th:field="${newLeasing.fundingAmount}" placeholder="Funding amount" required="required">
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
         </div>
-
-        <h2>Car's data: </h2>
-        <p><span class = "required-field">Car VIN:</span> <input type="text" th:field="${newLeasing.carVin}" required="required"/></p>
-        <p>Car Brand: <input type="text" th:field="${newLeasing.carBrand}"/></p>
-        <p>Car Model: <input type="text" th:field="${newLeasing.carModel}"/></p>
-        <p>Car Type: <select th:field="${newLeasing.carType}">
-            <option th:value="'Sedan'" th:text="Sedan"></option>
-            <option th:value="'Hatchback'" th:text="Hatchback"></option>
-            <option th:value="'SUV'" th:text="SUV"></option>
-            <option th:value="'Coupe'" th:text="Coupe"></option>
-            <option th:value="'Pickup'" th:text="Pickup"></option>
-            <option th:value="'Supercar'" th:text="Supercar"></option>
-        </select>
-        <p><span class = "required-field">Funding Amount:</span> <input type="number" th:field="${newLeasing.fundingAmount}" required="required" /></p>
-
-        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
-    </form>
-
+    </div>
 </div>
 
 

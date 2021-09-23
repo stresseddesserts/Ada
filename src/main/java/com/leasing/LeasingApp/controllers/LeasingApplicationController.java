@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class LeasingApplicationController {
@@ -93,9 +94,10 @@ public class LeasingApplicationController {
     }*/
 
     @PostMapping("/requestLeasing")
-    public ModelAndView addLeasingSubmit(@ModelAttribute LeasingApplication leasingApplication, @ModelAttribute PersonsForm personsList) {
+    public String addLeasingSubmit(@ModelAttribute LeasingApplication leasingApplication, @ModelAttribute PersonsForm personsList, RedirectAttributes redirectAttributes) {
         personService.addPersonsList(personsList.getPersonsList());
         leasingApplicationService.addLeasingApplication(leasingApplication, personsList.getPersonsList());
-        return new ModelAndView("redirect:" + "/allApplications");
+        redirectAttributes.addFlashAttribute("createdLeasingNr", leasingApplication.getApplicationNumber());
+        return "redirect:/";
     }
 }

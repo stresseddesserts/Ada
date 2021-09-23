@@ -110,7 +110,7 @@ public class LeasingApplicationService {
             Person person = personRepository.findNameById(Long.parseLong(s));
             names = names + person.getName() +" & ";
         }
-        names = names.substring(0,names.length()-2);
+        names = names.substring(0,names.length()-3);
         return names;
     }
 

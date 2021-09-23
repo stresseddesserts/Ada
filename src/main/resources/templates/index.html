@@ -2,92 +2,65 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://thymeleaf.org">
 <head lang="en">
+    <div th:replace="fragments/Header :: script"></div>
 
     <title>Java Leasing</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+        td, th {
+            padding: 5px;
+        }
+        #appNumber{
+            color: blueviolet;
+        }
+    </style>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
 </head>
-<script type="text/javascript">
-/*    function AddPersonForm() {
-        if (document.getElementById('addPersonForm').style.display == 'none') {
-            document.getElementById('addPersonForm').style.display = 'block';
-            document.getElementById('addPersonButton').value = "Ahh don't add it";
-        }
-        else {
-            document.getElementById('addPersonForm').style.display = 'none';
-            document.getElementById('addPersonButton').value = "Add new person";
-        }
-
-    }*/
-
-</script>
 <body>
 
+<div th:replace="fragments/Header :: header"></div>
 
+<div class="infoBlock">
+    <div th:if="${createdLeasingNr != null}">
+        <h3>Application successfully requested. Application Number: <span th:text="${createdLeasingNr}" id="appNumber"></span></h3>
+    </div>
 
-<!--<div>
-    <h2>Persons</h2>
-    <table>
-        <thead>
-        <tr>
-            <th>Name</th>
-            <th>Surname</th>
-            <th>Identification Number</th>
-            <th>Delete</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:if="${persons.empty}">
-            <td colspan="2"> No Persons Available </td>
-        </tr>
-        <tr th:each="person : ${persons}">
-            <td th:text="${person.name}"></td>
-            <td th:text="${person.surname}"></td>
-            <td th:text="${person.identificationNumber}"></td>
-            <td><a th:href="@{api/deletePerson/{id}(id=${person.id})}">Delete</a></td>
-        </tr>
-        </tbody>
-    </table>
-</div>
-
-<input type="button" id="addPersonButton" onclick="AddPersonForm()" value="Add new person">
-
-<div id="addPersonForm" style="display: none">
-    <form action="#" th:action="@{api/addNewPerson}" th:object="${person}" method="post">
-        <p>Name: <input type="text" th:field="*{name}" /></p>
-        <p>Surname: <input type="text" th:field="*{surname}" /></p>
-        <p>Identification Number: <input type="text" th:field="*{identificationNumber}" /></p>
-        <p>Income: <input type="number" th:field="*{income}" /></p>
-        <p>Funding Amount: <input type="number" th:field="*{fundingAmount}" /></p>
-        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
-    </form>
+    <h4>Leasing Applications</h4>
 </div>
 
 <div>
-    <h2>Current Leasing Applications</h2>
-    <table>
-        <thead>
-        <tr>
-            <th>Car VIN</th>
-            <th>Car Brand</th>
-            <th>Car Model</th>
-            <th>Car Type</th>
-            <th>Leasing Status</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:if="${leasingApplications.empty}">
-            <td colspan="2">No Leasing Applications available </td>
-        </tr>
-        <tr th:each="leasingApplication : ${leasingApplications}">
-            <td th:text="${leasingApplication.carVin}"></td>
-            <td th:text="${leasingApplication.carBrand}"></td>
-            <td th:text="${leasingApplication.carModel}"></td>
-            <td th:text="${leasingApplication.carType}"></td>
-            <td th:text="${leasingApplication.applicationStatus}"></td>
-        </tr>
-        </tbody>
-    </table>
-</div>-->
+<table class="table table-hover ">
+    <thead class="thead-light">
+    <tr>
+        <th scope="col">Car VIN</th>
+        <th scope="col">Car Brand</th>
+        <th scope="col">Car Model</th>
+        <th scope="col">Car Type</th>
+        <th scope="col">Leasing Status</th>
+        <th scope="col">Declination Reason</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${leasingApplications.empty}">
+        <td colspan="2"> No Leasing Applications available </td>
+    </tr>
+    <tr th:each="leasingApplication : ${leasingApplications}">
+        <td th:text="${leasingApplication.carVin}"></td>
+        <td th:text="${leasingApplication.carBrand}"></td>
+        <td th:text="${leasingApplication.carModel}"></td>
+        <td th:text="${leasingApplication.carType}"></td>
+        <!--            <td th:text="${leasingApplication.applicationStatus}"></td>-->
+        <td>
+            <span th:text="${leasingApplication.applicationStatus} ? 'Approved' : 'Declined'"></span>
+        </td>
+        <td th:text="${leasingApplication.declinationReason}"></td>
+    </tr>
+    </tbody>
+</table>
+</div>
 
 </body>
 </html>
