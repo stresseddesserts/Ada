@@ -10,4 +10,8 @@ public interface PersonRepository extends JpaRepository<Person, Long> {
 
     Person findIdByIdentificationNumber(String identificationNumber);
 
+    Person findNameById(Long id);
+
+    Person findIncomeById(Long id);
+
 }

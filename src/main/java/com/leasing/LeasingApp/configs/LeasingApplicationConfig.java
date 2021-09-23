@@ -22,7 +22,7 @@ public class LeasingApplicationConfig {
                     true,
                     "",
                     "1;2",
-                    12456,
+                    5000,
                     ""
 
             );
@@ -34,8 +34,8 @@ public class LeasingApplicationConfig {
                     "Pickup",
                     false,
                     "Insufficient net income",
-                    "1;2",
-                    7891011,
+                    "1",
+                    70000,
                     ""
             );
             leasingRepository.saveAll(

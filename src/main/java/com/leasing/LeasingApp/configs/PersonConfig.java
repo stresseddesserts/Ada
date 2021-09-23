@@ -21,11 +21,11 @@ public class PersonConfig {
                     100
             );
 
-            Person jack =new Person(
+            Person jack = new Person(
                     "jack",
                     "cactus",
                     "123456879",
-                    10
+                    500
             );
             personRepository.saveAll(
                     List.of(rokas, jack)

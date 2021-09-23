@@ -56,7 +56,14 @@ public class LeasingApplicationController {
     public String showLeasingApplication(@RequestParam (value = "applicationNumber", required = false) String applicationNumber,
                                          @RequestParam (value = "identificationNumber", required = false) String identificationNumber, Model model) {
 
-        model.addAttribute("leasingApplication", leasingApplicationService.getLeasingApplication(applicationNumber, identificationNumber));
+        LeasingApplication leasingApplication = leasingApplicationService.getLeasingApplication(applicationNumber, identificationNumber);
+        if (leasingApplication != null){
+            String applicantNames = leasingApplicationService.getApplicantNames(leasingApplication);
+            Integer applicantIncome = leasingApplicationService.calculateTotalIncome(leasingApplication);
+            model.addAttribute("applicantNames", applicantNames);
+            model.addAttribute("totalIncome", applicantIncome);
+        }
+        model.addAttribute("leasingApplication", leasingApplication);
         return "applicationStatus";
     }
 

@@ -39,7 +39,9 @@
           <th>Car Type</th>
           <th>Leasing Status</th>
           <th>Declination Reason</th>
-          <th>Applicants</th>
+           <th>Funding Amount</th>
+           <th>Total income</th>
+           <th>Applicants</th>
         </tr>
         <tr>
           <td th:text="*{carVin}"></td>
@@ -48,9 +50,11 @@
           <td th:text="*{carType}"></td>
         <td>
             <span th:text="*{applicationStatus} ? 'Approved' : 'Declined'"></span>
-    </td>
+        </td>
           <td th:text="*{declinationReason}"></td>
-          <td th:text="*{applicantIds}"></td>
+          <td th:text="*{fundingAmount}"></td>
+          <td th:text="${totalIncome}"></td>
+          <td th:text="${applicantNames}"></td>
         </tr>
       </table>
    </div>
