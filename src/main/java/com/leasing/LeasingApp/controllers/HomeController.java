@@ -17,9 +17,6 @@ public class HomeController {
 
     @GetMapping("/")
     public String showMain(Model model) {
-       // model.addAttribute("persons", personService.getAllPersons());
-       // model.addAttribute("person", new Person());
-        //model.addAttribute("leasingApplications", leasingApplicationService.getAllLeasingApplications());
         model.addAttribute("leasingApplications", leasingApplicationService.getAllLeasingApplications());
         return "index";
     }

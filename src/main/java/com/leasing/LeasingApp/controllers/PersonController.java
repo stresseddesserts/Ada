@@ -39,14 +39,6 @@ public class PersonController {
         return new ModelAndView("redirect:" + "/");
     }
 
-/*    @PostMapping(value="/addPersons")
-    public ModelAndView saveEditPersons(@ModelAttribute("personList") List<Person> personsList){
-        for (int i = 0; i < personsList.size(); i++) {
-            personService.addPerson(personsList.get(i));
-        }
-        return new ModelAndView("redirect:" + "/");
-    }*/
-
 
     @GetMapping(value = "/addNewPerson")
     public void addPersonForm(Model model) {

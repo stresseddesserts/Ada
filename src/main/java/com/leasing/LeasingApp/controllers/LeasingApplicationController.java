@@ -8,7 +8,6 @@ import com.leasing.LeasingApp.services.PersonService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
@@ -22,36 +21,6 @@ public class LeasingApplicationController {
         this.leasingApplicationService = leasingApplicationService;
         this.personService = personService;
     }
-
-
-/*    public ResponseEntity<LeasingApplication> getApplicationByNumber(@RequestParam String applicationNumber) {
-        return new ResponseEntity<LeasingApplication> (leasingApplicationRepository.findByApplicationNumber(applicationNumber), HttpStatus.OK);
-    }*/
-
-//    // get Leasing Application by applicationNumber
-//    @RequestMapping(value = "/getLeasingApplication/{applicationNumber}", method = {RequestMethod.GET, RequestMethod.POST})
-//    public ModelAndView getLeasingApplicationByNumber(@PathVariable String applicationNumber) {
-//
-//        leasingApplicationRepository.findByApplicationNumber(applicationNumber);
-//        return new ModelAndView("redirect:" + "/");
-//    }
-
-/*    @GetMapping("/applicationStatus")
-    public String showUserList(Model model) {
-        model.addAttribute("persons", personService.getAllPersons());
-        model.addAttribute("person", new Person());
-        model.addAttribute("leasingApplications", leasingApplicationService.getAllLeasingApplications());
-        return "index";
-    }*/
-
-
-
-
-//    @GetMapping(value = "/applicationStatus")
-//    public String getLeasingApplication() {
-//       // model.addAttribute("leasingApplication", leasingApplicationService.getLeasingApplication("7891011"));
-//        return "applicationStatus";
-//    }
 
     @GetMapping(value = "/getApplicationStatus")
     public String showLeasingApplication(@RequestParam (value = "applicationNumber", required = false) String applicationNumber,
@@ -83,15 +52,7 @@ public class LeasingApplicationController {
         }
         model.addAttribute("form", personsForm);
         model.addAttribute("newLeasing", new LeasingApplication());
-      //  model.addAttribute("newPerson", new Person());
     }
-
-/*    @PostMapping("/requestLeasing")
-    public ModelAndView addLeasingSubmit(@ModelAttribute LeasingApplication leasingApplication, @ModelAttribute Person person) {
-        leasingApplicationService.addLeasingApplication(leasingApplication);
-        personService.addPerson(person);
-        return new ModelAndView("redirect:" + "/allApplications");
-    }*/
 
     @PostMapping("/requestLeasing")
     public String addLeasingSubmit(@ModelAttribute LeasingApplication leasingApplication, @ModelAttribute PersonsForm personsList, RedirectAttributes redirectAttributes) {
