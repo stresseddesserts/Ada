@@ -5,16 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5ac77687-8ac9-4426-a133-35b53f543ea4" name="Changes" comment="Classes for leasingApplication crated;&#10;new .htmls crated, separated from index;&#10;form for leasingApplication search added;&#10;logic to retrieve all leasingApplications added;&#10;logic to retrieve a single leasingApplication by application number AND carType added;">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/Header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/leasing/LeasingApp/controllers/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/leasing/LeasingApp/controllers/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/leasing/LeasingApp/controllers/LeasingApplicationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/leasing/LeasingApp/controllers/LeasingApplicationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/leasing/LeasingApp/services/LeasingApplicationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/leasing/LeasingApp/services/LeasingApplicationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/applicationStatus.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/applicationStatus.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/Header.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/Header.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/requestLeasing.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/requestLeasing.html" afterDir="false" />
     </list>
@@ -156,7 +150,8 @@
       <workItem from="1632048098030" duration="20167000" />
       <workItem from="1632152180320" duration="19781000" />
       <workItem from="1632377326580" duration="23880000" />
-      <workItem from="1632430812806" duration="7593000" />
+      <workItem from="1632430812806" duration="8073000" />
+      <workItem from="1632461919302" duration="5539000" />
     </task>
     <task id="LOCAL−00001" summary="Wowww, still remembering how to use Java">
       <created>1632090911167</created>

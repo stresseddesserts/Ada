@@ -4,18 +4,9 @@
 <head lang="en">
     <div th:replace="fragments/Header :: script"></div>
 
-    <title>Java Leasing</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <style>
-        table, th, td {
-            border: 1px solid black;
-        }
-        td, th {
-            padding: 5px;
-        }
-        #appNumber{
-            color: blueviolet;
-        }
+
     </style>
     <link rel="stylesheet" th:href="@{/css/main.css}">
 </head>
@@ -24,42 +15,46 @@
 <div th:replace="fragments/Header :: header"></div>
 
 <div class="infoBlock">
-    <div th:if="${createdLeasingNr != null}">
+    <div class="successMessage" th:if="${createdLeasingNr != null}">
         <h3>Application successfully requested. Application Number: <span th:text="${createdLeasingNr}" id="appNumber"></span></h3>
     </div>
 
     <h4>Leasing Applications</h4>
 </div>
 
-<div>
-<table class="table table-hover ">
-    <thead class="thead-light">
-    <tr>
-        <th scope="col">Car VIN</th>
-        <th scope="col">Car Brand</th>
-        <th scope="col">Car Model</th>
-        <th scope="col">Car Type</th>
-        <th scope="col">Leasing Status</th>
-        <th scope="col">Declination Reason</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:if="${leasingApplications.empty}">
-        <td colspan="2"> No Leasing Applications available </td>
-    </tr>
-    <tr th:each="leasingApplication : ${leasingApplications}">
-        <td th:text="${leasingApplication.carVin}"></td>
-        <td th:text="${leasingApplication.carBrand}"></td>
-        <td th:text="${leasingApplication.carModel}"></td>
-        <td th:text="${leasingApplication.carType}"></td>
-        <!--            <td th:text="${leasingApplication.applicationStatus}"></td>-->
-        <td>
-            <span th:text="${leasingApplication.applicationStatus} ? 'Approved' : 'Declined'"></span>
-        </td>
-        <td th:text="${leasingApplication.declinationReason}"></td>
-    </tr>
-    </tbody>
-</table>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-10">
+            <table class="table table-hover ">
+                <thead class="thead-light">
+                <tr>
+                    <th scope="col">Car VIN</th>
+                    <th scope="col">Car Brand</th>
+                    <th scope="col">Car Model</th>
+                    <th scope="col">Car Type</th>
+                    <th scope="col">Leasing Status</th>
+                    <th scope="col">Declination Reason</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:if="${leasingApplications.empty}">
+                    <td colspan="2"> No Leasing Applications available </td>
+                </tr>
+                <tr th:each="leasingApplication : ${leasingApplications}">
+                    <td th:text="${leasingApplication.carVin}"></td>
+                    <td th:text="${leasingApplication.carBrand}"></td>
+                    <td th:text="${leasingApplication.carModel}"></td>
+                    <td th:text="${leasingApplication.carType}"></td>
+                    <!--            <td th:text="${leasingApplication.applicationStatus}"></td>-->
+                    <td>
+                        <span th:text="${leasingApplication.applicationStatus} ? 'Approved' : 'Declined'"></span>
+                    </td>
+                    <td th:text="${leasingApplication.declinationReason}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
 
 </body>

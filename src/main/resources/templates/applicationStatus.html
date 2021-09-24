@@ -3,65 +3,70 @@
       xmlns:th="http://thymeleaf.org">
 <head lang="en">
 
-  <title>Java Leasing</title>
+    <div th:replace="fragments/Header :: script"></div>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 
-  <style>
-    th, td {
-      border: 1px solid black;
-      padding: 5px;
-        text-align: center;
-    }
-    form, h2{
-      text-align: center;
-    }
 
-    table{
-      margin:0 auto;
-    }
-
-  </style>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
 </head>
 <body>
+<div th:replace="fragments/Header :: header"></div>
 
-
-<div>
-  <form th:object="${leasingApplication}" th:action="@{/getApplicationStatus}" method="get">
-    <input type="text" placeholder="Enter Application Number" name="applicationNumber" id="applicationNumber" th:value="${applicationNumber}"/>
-    <input type="text" placeholder="Enter Identification Number" name="identificationNumber" id="identificationNumber" th:value="${identificationNumber}"/>
-    <input type="submit" value="Search"/>
-  </form>
+<div class="infoBlock">
+    <h4>Check Application Status</h4>
 </div>
 
-<div th:object="${leasingApplication}" th:if="${leasingApplication != null}" >
-    <h2>Your application - <span th:text="*{applicationNumber}"></span></h2>
-    <table>
-     <tr>
-      <th>Car VIN</th>
-      <th>Car Brand</th>
-      <th>Car Model</th>
-      <th>Car Type</th>
-      <th>Leasing Status</th>
-      <th>Declination Reason</th>
-       <th>Funding Amount</th>
-       <th>Total income</th>
-       <th>Applicants</th>
-    </tr>
-    <tr>
-      <td th:text="*{carVin}"></td>
-      <td th:text="*{carBrand}"></td>
-      <td th:text="*{carModel}"></td>
-      <td th:text="*{carType}"></td>
-    <td>
-        <span th:text="*{applicationStatus} ? 'Approved' : 'Declined'"></span>
-    </td>
-      <td th:text="*{declinationReason}"></td>
-      <td th:text="*{fundingAmount}"></td>
-      <td th:text="${totalIncome}"></td>
-      <td th:text="${applicantNames}"></td>
-    </tr>
-  </table>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="form-group col-4">
+            <form th:object="${leasingApplication}" th:action="@{/getApplicationStatus}" method="get">
+                <label for="applicationNumber" class="required-field">Application Number</label>
+                <input type="text" class="form-control" id="applicationNumber" name="applicationNumber" th:value="${applicationNumber}" placeholder="Application Number" required="required">
+                <label for="identificationNumber" class="required-field">Identification Number</label>
+                <input type="text" class="form-control" id="identificationNumber" name="identificationNumber" th:value="${identificationNumber}" placeholder="Identification Number" required="required">
+                <button type="submit" class="btn btn-primary my-1">Search</button>
+            </form>
+        </div>
+    </div>
+</div>
 
+
+<div class="container leasingTable" th:object="${leasingApplication}" th:if="${leasingApplication != null}" >
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <h2 class="infoBlock">Your application - <span th:text="*{applicationNumber}"></span></h2>
+            <table class="table table-hover ">
+                <thead class="thead-light">
+                <tr>
+                    <th>Car VIN</th>
+                    <th>Car Brand</th>
+                    <th>Car Model</th>
+                    <th>Car Type</th>
+                    <th>Leasing Status</th>
+                    <th>Declination Reason</th>
+                    <th>Funding Amount</th>
+                    <th>Total income</th>
+                    <th>Applicants</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td th:text="*{carVin}"></td>
+                    <td th:text="*{carBrand}"></td>
+                    <td th:text="*{carModel}"></td>
+                    <td th:text="*{carType}"></td>
+                    <td>
+                        <span th:text="*{applicationStatus} ? 'Approved' : 'Declined'"></span>
+                    </td>
+                    <td th:text="*{declinationReason}"></td>
+                    <td th:text="*{fundingAmount}"></td>
+                    <td th:text="${totalIncome}"></td>
+                    <td th:text="${applicantNames}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
 
 </body>

@@ -5,13 +5,7 @@
     <div th:replace="fragments/Header :: script"></div>
 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <style>
-        .required-field::after {
-            content: "*";
-            color: #bc2b2c;
-        }
 
-    </style>
     <script type="text/javascript" th:src="@{js/app.js}"></script>
     <link rel="stylesheet" th:href="@{/css/main.css}">
 </head>
@@ -27,7 +21,7 @@
             <form action="#" th:action="@{/requestLeasing}" th:object="${form}" method="post" >
 
                 <!--MAIN CUSTOMER-->
-
+                <h5 class="topLabel">Personal Data</h5>
                 <div class="form-group">
                     <label for="name1" class="required-field">Name</label>
                     <input type="text" class="form-control" id="name1" th:field="*{personsList[0].name}" placeholder="Enter name" required="required">
@@ -51,6 +45,7 @@
 
                  <!--CO-APPLICANT form-->
                 <div id="addCoapplicantForm" style="display: none">
+                    <h5 class="topLabel">Co-Aplicant's Data</h5>
                     <div class="form-group">
                         <label for="name2" class="required-field">Name</label>
                         <input type="text" class="form-control" id="name2" th:field="*{personsList[1].name}" placeholder="Enter name" required="required" disabled>
@@ -71,6 +66,7 @@
 
                 <!--CAR DATA-->
                 <div>
+                    <h5 class="topLabel">Car Data</h5>
                     <div class="form-group">
                         <label for="carVin" class="required-field">Car VIN</label>
                         <input type="text" class="form-control" id="carVin" th:field="${newLeasing.carVin}" placeholder="Enter car VIN" required="required">

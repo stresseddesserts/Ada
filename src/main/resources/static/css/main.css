@@ -14,3 +14,35 @@
     margin: 50px;
     text-align: center;
 }
+
+table, th, td {
+    border: 1px solid black;
+}
+td, th {
+    padding: 5px;
+}
+#appNumber{
+    color: blueviolet;
+}
+.successMessage{
+    margin-bottom: 20px;
+}
+
+.required-field::after {
+    content: "*";
+    color: #bc2b2c;
+}
+button {
+    margin-bottom: 10px
+}
+#addCoapplicantForm{
+    background-color: #EDEDED;
+    padding:10px;
+}
+.topLabel {
+    text-align: center;
+}
+
+.leasingTable{
+    text-align: center;
+}
