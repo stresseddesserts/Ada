@@ -47,6 +47,7 @@
                     <th>Funding Amount</th>
                     <th>Total income</th>
                     <th>Applicants</th>
+                    <th>Withdrawal</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -62,6 +63,12 @@
                     <td th:text="*{fundingAmount}"></td>
                     <td th:text="${totalIncome}"></td>
                     <td th:text="${applicantNames}"></td>
+                    <td>
+<!--                        <a th:href="@{'/deleteApplication/{id}'(id=*{id})}">Withdraw</a></td>-->
+                        <form th:action="@{'/deleteApplication/{id}'(id=*{id})}" >
+                        <button type="submit" class="btn btn-outline-danger">Withdraw</button>
+                        </form>
+                    </td>
                 </tr>
                 </tbody>
             </table>

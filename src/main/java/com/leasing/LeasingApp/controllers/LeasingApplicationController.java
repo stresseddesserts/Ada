@@ -8,6 +8,7 @@ import com.leasing.LeasingApp.services.PersonService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
@@ -60,5 +61,13 @@ public class LeasingApplicationController {
         leasingApplicationService.addLeasingApplication(leasingApplication, personsList.getPersonsList());
         redirectAttributes.addFlashAttribute("createdLeasingNr", leasingApplication.getApplicationNumber());
         return "redirect:/";
+    }
+
+    // delete application
+    @RequestMapping(value = "/deleteApplication/{id}", method = {RequestMethod.GET, RequestMethod.POST})
+    public String deleteApplication(@PathVariable Long id, RedirectAttributes redirectAttributes) {
+        leasingApplicationService.removeLeasingApplication(id);
+        redirectAttributes.addFlashAttribute("leasingWithdrew", true);
+        return ("redirect:/");
     }
 }

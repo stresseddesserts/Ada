@@ -18,6 +18,9 @@
     <div class="successMessage" th:if="${createdLeasingNr != null}">
         <h3>Application successfully requested. Application Number: <span th:text="${createdLeasingNr}" id="appNumber"></span></h3>
     </div>
+    <div class="successMessage" th:if="${leasingWithdrew != null}">
+        <h3>Application successfully withdrew.</h3>
+    </div>
 
     <h4>Leasing Applications</h4>
 </div>
